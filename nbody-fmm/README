@@ -1,0 +1,15 @@
+# This code requires PVFMM library. Follow these instructions to download and
+# compile the library.
+
+git clone https://github.com/dmalhotra/pvfmm.git
+cd pvfmm
+./autogen.sh
+module load  intel-2017  mpi/openmpi-x86_64  gcc-6.2.0
+./configure CXXFLAGS="-O3 -march=native"
+make -j
+cd ..
+
+
+# Then compile the N-body code
+make
+
