@@ -75,7 +75,7 @@ int main(int argc, char** argv) {
   MPI_Comm_size(comm, &np);
   srand48(rank);
 
-  long N = atol(argv[1])/np;
+  long N = read_option<long>("-N", argc, argv)/np;
   std::vector<Particle> pts(N);
   for (long i = 0; i < N; i++) { // Initialize pts (coordinates, velocity, mass)
     double X = 0.5 + (drand48()-0.5)*0.1;
